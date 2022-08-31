@@ -10,10 +10,10 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: echo "hello world" > workspace/output.txt
+      - run: echo "hello world" > output.txt
 
       - persist_to_workspace:
-          root: /workspace
+          root: .
           paths:
             - .
   print_output_file:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /workspace
+          at: .
       - run: cat output.txt
 
 # Invoke jobs via workflows
@@ -33,5 +33,3 @@ workflows:
       - save_hello_world_output
       - print_output_file:
           requires: [save_hello_world_output]
-
- 
