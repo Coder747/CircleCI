@@ -20,13 +20,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: return 1
-  
-  if_fail:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
+      - run: exit 1
       - run:
             name: Upload Failed Tests
             command: curl --data fail_tests.log http://example.com/error_logs
@@ -40,6 +34,5 @@ workflows:
   fail_step-workflow:
     jobs:
       - fail_step
-      - if_fail
 
  
