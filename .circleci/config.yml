@@ -15,14 +15,14 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - echo-output
+            - .
   print_output_file:
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
       - attach_workspace:
-          at: /echo-output
+          at: .
       - run: cat output.txt
 
 # Invoke jobs via workflows
