@@ -40,7 +40,6 @@ workflows:
   fail_step-workflow:
     jobs:
       - fail_step
-      - if_fail:
-          requires: [fail_step]
+      - if_fail
 
  
