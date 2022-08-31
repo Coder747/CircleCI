@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: .
+          at: /echo-output
       - run: cat output.txt
 
 # Invoke jobs via workflows
